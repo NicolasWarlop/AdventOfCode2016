@@ -30,3 +30,31 @@ for x in exampleInst:
 
 #The taxicab geometry is equal to the sum of the absolute value of these coordinates (since our initial coordinate was 0,0)
 print("The final distance is: " + str(abs(coordinates[0]) + abs(coordinates[1])))
+
+#Part 2: Find the first location you visit twice:
+#Reset the coordinates, store each visited location
+found = False
+
+coordinates = [0,0,'N']
+coordinatesList = [[0,0]]
+for x in exampleInst:
+	coordinates[2] = getDirection(coordinates[2], x)
+	for val in range(int(x[1:])):
+		if coordinates[2] == 'N': #positive y
+			coordinates[1] += 1
+		elif coordinates[2] == 'S': #negative y
+			coordinates[1] -= 1
+		elif coordinates[2] == 'E': #positive x
+			coordinates[0] += 1
+		elif coordinates[2] == 'W': #positive x
+			coordinates[0] -= 1
+		
+		if [coordinates[0],coordinates[1]] in coordinatesList:
+			print ("First Location you visit twice is " + str(abs(coordinates[0]) + abs(coordinates[1])) + " units from the origin. X = "  + str(coordinates[0]) + " Y= " + str(coordinates[1]))
+			found = True
+			break
+
+		coordinatesList.append([coordinates[0],coordinates[1]])
+	if found:
+		break
+
