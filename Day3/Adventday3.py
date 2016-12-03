@@ -37,7 +37,6 @@ f = open(sys.argv[1], 'r')
 
 for line in f:
 	if countTri > COUNTER_MAX:
-		print(triangle1)
 		possibleTriangles += validTriangle(triangle1)
 		possibleTriangles += validTriangle(triangle2)
 		possibleTriangles += validTriangle(triangle3)
@@ -56,7 +55,6 @@ for line in f:
 		triangle3[countTri] = sides[2]
 		countTri += 1
 #We want to capture the last triangle. This is not super neat, and would need to be worked on to be included in the for loop
-print(triangle1)
 possibleTriangles += validTriangle(triangle1)
 possibleTriangles += validTriangle(triangle2)
 possibleTriangles += validTriangle(triangle3)
