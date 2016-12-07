@@ -20,7 +20,6 @@ f.close()
 hyperList = []
 SSLCounter = 0
 lineCount = 0
-counted = False
 lineArray = []
 
 f = open(sys.argv[1], 'r')
